@@ -1,0 +1,99 @@
+.diachi{
+	border-bottom: 1px solid #9e8d8d;
+	padding: 5px;
+	padding-left: 20px;  
+	padding-right:20px;  
+}
+.banner{
+	width: 100%;
+}
+.navbar{
+	border-radius: 0px; 
+}
+.navbar-default{
+	background-color:#00a859; 
+}
+.navbar-default .navbar-brand{
+	color: #fff;
+	font-size: 18px;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus{
+	background:#ff6600; 
+	color:#fff;
+}
+.navbar-default .navbar-nav>li>a{
+	color: #fff;
+	font-size: 18px;
+}
+.navbar-default .navbar-nav>.active>a, 
+.navbar-default .navbar-nav>.active>a:focus, 
+.navbar-default .navbar-nav>.active>a:hover{
+	background:#ff6600; 
+	color:#fff;
+}
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus{
+	background:#ff6600; 
+	color:#fff;
+}
+
+@media(max-width: 767px){
+	.navbar-toggle{
+		float: none;
+		margin-left: 10px;
+
+	}
+	
+}
+
+.marg{
+	margin: 40px;
+}
+.button-mid{
+	margin: auto;
+	padding-top: 15px;
+    padding-bottom: 15px;
+	width: 220px;
+	background: green;
+	color: #fff;
+	text-align: center;
+	border-radius: 15px;
+	/*margin: 10px;*/
+	/*text-align: center;*/
+}
+.tieude{
+	/*background: green;*/
+	border-bottom: 2px solid green;
+}
+.tieude>h5{
+	width: 220px;
+	padding-top:5px; 
+	padding-bottom:5px;
+	background: green;
+	margin-bottom: 0px;
+	text-align: center;
+	color: #fff;
+}
+
+.footer{
+	background: #d9f2e6;
+	padding:10px 10px 10px 10px; 
+}
+.main-1{
+	margin-top: 15px;
+	padding-left: 100px;
+	padding-right: 100px;
+}
+.main-2{
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+.h3{
+	font-size: 14px;
+}
+p{
+	font-size: 12px;
+	text-align:justify;
+}
