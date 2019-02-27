@@ -1,6 +1,6 @@
 banner_top(bannerdautrang, logo, hotline, diachi, email, backgroup, slogan)
 gioithieu(noidung)
-sanpham(id, hinhanh, noidung, giatien, noibat)
+sanpham(id, hinhanh, noidung, giatien, noibat)???
 dichvu(id , noidung, )
 tintuc(id, noidung, noibat, mota, tieude, hinhanh)
 tuyendung(id, noidung, noibat, mota, tieude, hinhanh)
@@ -9,7 +9,8 @@ formlienhe(id, hoten, diachi, sdt, emmail)
 slide(id, hinhanh, tieude, baiviet, mota, link)
 banner(tieude, hinhanh, link, seo)
 sanphammoi(lay 4 tu san pham)/////
-duannoibat(id, noidung, icon, tieude)
+duannoibat(id, noidung, noibat, hinhanh, tieude, mota)
+duoi_duannoibat(noidung, icon, tieude)
 video(link)
 tintucsukien(lay 4 tin tuc )//////
 doitac(id, hinhanh, seo)
