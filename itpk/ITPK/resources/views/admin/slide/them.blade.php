@@ -12,34 +12,36 @@
 				
 				<div class="panel panel-primary">
 					<div class="panel-heading">Thêm slide</div>
+					@include('errors.note')
 					<div class="panel-body">
 						<form method="post" enctype="multipart/form-data">
+							@csrf()
 							<div class="row" style="margin-bottom:40px">
 								<div class="col-xs-8">
 									<div class="form-group" >
 										<label>Tiêu đề </label>
-										<input required type="text" name="name" class="form-control">
+										<input required type="text" name="tieude" class="form-control">
 									</div>
 									<div class="form-group" >
 										<label>Nội dung</label>
-										<input required type="text" name="price" class="form-control">
+										<input required type="text" name="noidung" class="form-control">
 									</div>
 									<div class="form-group" >
 										<label>Mô tả </label>
-										<input required type="text" name="name" class="form-control">
+										<input required type="text" name="mota" class="form-control">
 									</div>
 									<div class="form-group" >
 										<label>Link</label>
-										<input required type="text" name="price" class="form-control">
+										<input required type="text" name="link" class="form-control">
 									</div>
 									<div class="form-group" >
 										<label>Ảnh sản phẩm</label>
-										<input required id="img" type="file" name="img" class="form-control hidden" onchange="changeImg(this)">
+										<input  id="img" type="file" name="img" class="form-control hidden" onchange="changeImg(this)">
 					                    <img id="avatar" class="thumbnail" width="300px" src="img/new_seo-10-512.png">
 									</div>
 									
 									<input type="submit" name="submit" value="Thêm" class="btn btn-primary">
-									<a href="#" class="btn btn-danger">Hủy bỏ</a>
+									<a href="{{ asset('admin/slide') }}" class="btn btn-danger">Hủy bỏ</a>
 								</div>
 							</div>
 						</form>

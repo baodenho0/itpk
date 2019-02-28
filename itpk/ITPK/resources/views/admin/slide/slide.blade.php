@@ -12,37 +12,41 @@
 				
 				<div class="panel panel-primary">
 					<div class="panel-heading">Danh sách slide</div>
+					@include('errors.note')
 					<div class="panel-body">
 						<div class="bootstrap-table">
 							<div class="table-responsive">
-								<a href="#" class="btn btn-primary">Thêm slide</a>
+								<a href="{{ asset('admin/slide/them') }}" class="btn btn-primary">Thêm slide</a>
 								<table class="table table-bordered" style="margin-top:20px;">				
 									<thead>
 										<tr class="bg-primary">
 											<th>ID</th>
-											<th width="30%">Tiêu đề</th>
-											<th>Nội dung </th>
+											<th width="30%">Hình ảnh</th>
+											<th>Tiêu đề</th>
+											<th>Nội dung</th>
 											<th>Mô tả</th>
-											<th>Link slide</th>
-											<th width="20%">Ảnh</th>
-											<th>Tùy chọn</th>
+											<th>Link</th>
+											<th  width="20%">Tùy chọn</th>
 										</tr>
 									</thead>
 									<tbody>
+										@foreach ($slide as $sl)
 										<tr>
-											<td>1</td>
-											<td>iPhone 7 Plus 32GB quốc tế Mate Black</td>
-											<td>21.990.000 VND</td>
-											<td>iPhone 7 Plus 32GB quốc tế Mate Black</td>
-											<td>21.990.000 VND</td>
+											<td>{{$sl->id}}</td>
 											<td>
-												<img width="200px" src="img/iphone7-plus-black-select-2016.jpg" class="thumbnail">
+												<img width="200px" src="upload/img/{{$sl->hinhanh}}" class="thumbnail">
 											</td>
+											<td>{{$sl->tieude}}</td>
+											<td>{{$sl->baiviet}}</td>
+											<td>{{$sl->mota}}</td>
+											<td>{{$sl->link}}</td>
 											<td>
-												<a href="#" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
-												<a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
+												<a href="{{ asset('admin/slide/sua/'.$sl->id) }}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
+												<a href="{{ asset('admin/slide/xoa/'.$sl->id) }}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
 											</td>
 										</tr>
+										@endforeach
+										
 										
 									</tbody>
 								</table>							

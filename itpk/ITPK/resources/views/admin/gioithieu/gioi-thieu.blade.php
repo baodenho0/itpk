@@ -12,19 +12,20 @@
 				
 				<div class="panel panel-primary">
 					<div class="panel-heading">Cập nhật</div>
+					@include('errors.note')
 					<div class="panel-body">
 						<form method="post" enctype="multipart/form-data">
+							@csrf()
 							<div class="row" style="margin-bottom:40px">
 								<div class="col-xs-8">
 									
 									<div class="form-group" >
 										<label>Giới thiệu</label>
-										<textarea required name="description"></textarea>
+										<textarea  class="ckeditor" required name="gioithieu">{{$gioithieu->noidung}}</textarea>
 									</div>
 									
 									
 									<input type="submit" name="submit" value="Cập nhật" class="btn btn-primary">
-									<a href="#" class="btn btn-danger">Hủy bỏ</a>
 								</div>
 							</div>
 						</form>

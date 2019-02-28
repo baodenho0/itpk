@@ -12,24 +12,28 @@
 				
 				<div class="panel panel-primary">
 					<div class="panel-heading">Cập nhật</div>
+					@include('errors.note')
 					<div class="panel-body">
-						<form method="post" enctype="multipart/form-data">
+						<form method="post" >
+							@csrf()
 							<div class="row" style="margin-bottom:40px">
 								<div class="col-xs-8">
 									
 									<div class="form-group" >
 										<label>Thông tin liên hệ</label>
-										<textarea required name="description"></textarea>
+										<textarea class="ckeditor" required name="lienhe">{{$lienhe->noidung}}</textarea>
 									</div>
 
 									<div class="form-group" >
 										<label>Bản đồ</label>
-										<input type="text" class="form-control" name="bando">
+										<input value="{{$lienhe->bando}}" required type="text" class="form-control" name="bando">
 									</div>
-									
+									{!!$lienhe->bando!!}
+									<br>
+									<br>
 									
 									<input type="submit" name="submit" value="Cập nhật" class="btn btn-primary">
-									<a href="#" class="btn btn-danger">Hủy bỏ</a>
+									
 								</div>
 							</div>
 						</form>
