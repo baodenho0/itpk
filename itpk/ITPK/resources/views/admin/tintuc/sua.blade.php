@@ -11,7 +11,7 @@
 			<div class="col-xs-12 col-md-12 col-lg-12">
 				
 				<div class="panel panel-primary">
-					<div class="panel-heading">Thêm Tin tức</div>
+					<div class="panel-heading">Cập nhật Tin tức</div>
 					@include('errors.note')
 					<div class="panel-body">
 						<form method="post" enctype="multipart/form-data">
@@ -20,28 +20,40 @@
 								<div class="col-xs-8">
 									<div class="form-group" >
 										<label>Nội dung</label>
-										<textarea  class="ckeditor" required name="noidung"></textarea>
+										<textarea  class="ckeditor" required name="noidung">{{$tintuc->noidung}}</textarea>
 									</div>
 									<div class="form-group" >
 										<label>Nổi bật</label><br>
-										Có: <input type="radio" name="noibat" value="1">
-										Không: <input type="radio" checked name="noibat" value="0">
+										Có: <input type="radio" 
+										@php
+    										if($tintuc->noibat == 1){
+												echo "checked"; 
+    										}
+    									@endphp
+										name="noibat" value="1">
+										Không: <input type="radio" 
+										@php
+    										if($tintuc->noibat == 0){
+												echo "checked"; 
+    										}
+    									@endphp
+										name="noibat" value="0">
 									</div>
 									<div class="form-group" >
 										<label>Mô tả </label>
-										<input required type="text" name="mota" class="form-control">
+										<input value="{{$tintuc->mota}}" required type="text" name="mota" class="form-control">
 									</div>
 									<div class="form-group" >
 										<label>Tiêu đề</label>
-										<input required type="text" name="tieude" class="form-control">
+										<input value="{{$tintuc->tieude}}" required type="text" name="tieude" class="form-control">
 									</div>
 									<div class="form-group" >
 										<label>Ảnh</label>
 										<input  id="img" type="file" name="img" class="form-control hidden" onchange="changeImg(this)">
-					                    <img id="avatar" class="thumbnail" width="300px" src="img/new_seo-10-512.png">
+					                    <img id="avatar" class="thumbnail" width="300px" src="upload/img/{{$tintuc->hinhanh}}">
 									</div>
 									
-									<input type="submit" name="submit" value="Thêm" class="btn btn-primary">
+									<input type="submit" name="submit" value="Cập nhật" class="btn btn-primary">
 									<a href="{{ asset('admin/tin-tuc') }}" class="btn btn-danger">Hủy bỏ</a>
 								</div>
 							</div>

@@ -15,7 +15,7 @@
 					<div class="panel-body">
 						<div class="bootstrap-table">
 							<div class="table-responsive">
-								<a href="#" class="btn btn-primary">Thêm slide</a>
+								<a href="{{ asset('admin/doi-tac/them') }}" class="btn btn-primary">Thêm slide</a>
 								<table class="table table-bordered" style="margin-top:20px;">				
 									<thead>
 										<tr class="bg-primary">

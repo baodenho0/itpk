@@ -12,18 +12,19 @@
 				
 				<div class="panel panel-primary">
 					<div class="panel-heading">Cập nhật</div>
+					@include('errors.note')
 					<div class="panel-body">
-						<form method="post" enctype="multipart/form-data">
+						<form method="post" >
+							@csrf()
 							<div class="row" style="margin-bottom:40px">
 								<div class="col-xs-8">
 									<div class="form-group" >
 										<label>Video</label>
-										<input required type="text" name="bannerdautrang" class="form-control">
+										<input value="{{$video->link}}" required type="text" name="video" class="form-control">
 									</div>
 									
 									
 									<input type="submit" name="submit" value="Cập nhật" class="btn btn-primary">
-									<a href="#" class="btn btn-danger">Hủy bỏ</a>
 								</div>
 							</div>
 						</form>

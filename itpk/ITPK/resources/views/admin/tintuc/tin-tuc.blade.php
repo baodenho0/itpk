@@ -12,37 +12,41 @@
 				
 				<div class="panel panel-primary">
 					<div class="panel-heading">Danh sách tin tức</div>
+					@include('errors.note')
 					<div class="panel-body">
 						<div class="bootstrap-table">
 							<div class="table-responsive">
-								<a href="#" class="btn btn-primary">Thêm tin tức</a>
+								<a href="{{ asset('admin/tin-tuc/them') }}" class="btn btn-primary">Thêm tin tức</a>
 								<table class="table table-bordered" style="margin-top:20px;">				
 									<thead>
 										<tr class="bg-primary">
 											<th>ID</th>
-											<th width="30%">Tiêu đề</th>
-											<th>Nội dung </th>
+											<th width="30%">Nội dung</th>
+											<th>Nôi bật</th>
 											<th>Mô tả</th>
-											<th>Link slide</th>
+											<th>Tiêu đề</th>
 											<th width="20%">Ảnh</th>
 											<th>Tùy chọn</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>1</td>
-											<td>iPhone 7 Plus 32GB quốc tế Mate Black</td>
-											<td>21.990.000 VND</td>
-											<td>iPhone 7 Plus 32GB quốc tế Mate Black</td>
-											<td>21.990.000 VND</td>
+										@foreach ($tintuc as $tt)
+											<tr>
+											<td>{{$tt->id}}</td>
+											<td>{!!$tt->noidung!!}</td>
+											<td>{{$tt->noibat}}</td>
+											<td>{{$tt->mota}}</td>
+											<td>{{$tt->tieude}}</td>
 											<td>
-												<img width="200px" src="img/iphone7-plus-black-select-2016.jpg" class="thumbnail">
+												<img width="200px" src="upload/img/{{$tt->hinhanh}}" class="thumbnail">
 											</td>
 											<td>
-												<a href="#" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
-												<a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
+												<a href="{{ asset('admin/tin-tuc/sua/'.$tt->id) }}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
+												<a href="{{ asset('admin/tin-tuc/xoa/'.$tt->id) }}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
 											</td>
 										</tr>
+										@endforeach
+										
 										
 									</tbody>
 								</table>							

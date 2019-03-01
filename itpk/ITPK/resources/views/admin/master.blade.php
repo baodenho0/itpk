@@ -46,7 +46,7 @@
 			<li><a href="{{ asset('admin/banner') }}">Banner</a></li>
 			<li><a href="{{ asset('admin/du-an-noi-bat') }}">Dự án nổi bật</a></li>
 			<li><a href="{{ asset('admin/video') }}">Video</a></li>
-			<li><a href="{{ asset('admin/doitac') }}">Đối tác</a></li>
+			<li><a href="{{ asset('admin/doi-tac') }}">Đối tác</a></li>
 			<li><a href="{{ asset('admin/footer') }}">Footer</a></li>
 
 		</ul>

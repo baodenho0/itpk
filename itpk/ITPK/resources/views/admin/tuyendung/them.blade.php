@@ -23,7 +23,7 @@
 										<textarea required class="ckeditor" name="tuyendung"></textarea>
 									</div>
 									<div class="form-group" >
-										<label>Sản phẩm nổi bật</label><br>
+										<label>Nổi bật</label><br>
 										Có: <input type="radio" name="noibat" value="1">
 										Không: <input type="radio" checked name="noibat" value="0">
 									</div>
