@@ -7,7 +7,7 @@ use App\Http\Requests;
 use App\danhmuc;
 use App\danhmuc2;
 use App\sanpham;
-use App\sanpha2;
+use App\sanpham2;
 use App\hinhanhphu;
 use App\hinhanhphu2;
 
@@ -40,7 +40,7 @@ class sanphamController extends Controller
     	// --- upload anh
     	if($request->hasFile('img')){
     	$hinhanh = $request->file('img');
-		$hinhanh_name = str_random(4)."-".$hinhanh->getClientOriginalName();
+		$hinhanh_name = str_random(6)."-".$hinhanh->getClientOriginalName();
 		$hinhanh->move('layout/upload/img',$hinhanh_name);
 		$menu1->hinhanh = $hinhanh_name;
 		}
@@ -97,7 +97,7 @@ class sanphamController extends Controller
     	// --- upload anh
     	if($request->hasFile('img')){
     	$hinhanh = $request->file('img');
-		$hinhanh_name = str_random(4)."-".$hinhanh->getClientOriginalName();
+		$hinhanh_name = str_random(6)."-".$hinhanh->getClientOriginalName();
 		unlink('layout/upload/img/'.$menu1->hinhanh);
 		$hinhanh->move('layout/upload/img',$hinhanh_name);
 		$menu1->hinhanh = $hinhanh_name;
@@ -139,11 +139,243 @@ class sanphamController extends Controller
     	return back()->with('thongbao','Xóa thành công');
     }
 
-    //tuong tac san pham
+    //tuong tac san pham 1
     public function getmenu1sanpham(){
-    	return view('admin.sanpham.sanpham1');
+    	$data['menu'] =  danhmuc::all();
+    	$data['sanpham1'] =  sanpham::all();
+    	return view('admin.sanpham.sanpham.sanpham1',$data);
     }
-    //end tuong tac san pham
+
+    public function postmenu1sanpham(Request $request){
+    	$this->validate($request,[
+    		'tieude'=>'required',
+    		'giatien'=>'required',
+    		'thongsokythuat'=>'required',
+    		'mota'=>'required',
+    		'chitietsanpham'=>'required',
+    		'cmtfb'=>'required',
+    		'seo'=>'required',
+    		'id_danhmuc'=>'required',
+    		'img'=>'required|mimes:jpg,jpeg,png',
+    		'menu'=>'required',
+    	],[
+    		'tieude.required'=>'Chưa nhập tiêu đề',
+    		'giatien.required'=>'Chưa nhập giá tiền',
+    		'thongsokythuat.required'=>'Chưa nhập thông số kỹ thuật',
+    		'mota.required'=>'Chưa nhập mô tả',
+    		'chitietsanpham.required'=>'Chưa nhập chi tiết sản phẩm',
+    		'nhungcmtfb.required'=>'Chưa nhập nhúng cmt FB',
+    		'seo.required'=>'Chưa nhập seo',
+    		'id_danhmuc.required'=>'Chưa có menu',
+    		'img.required'=>'Chưa có hình ảnh',
+    		'img.mimes'=>'Chỉ được tải ảnh',
+    		'menu.mimes'=>'Chưa có menu',
+    	]);
+    	$sanpham1 = new sanpham;
+    	$sanpham1->tieude = $request->tieude;
+    	$sanpham1->giatien = $request->giatien;
+    	$sanpham1->thongsokythuat = $request->thongsokythuat;
+    	$sanpham1->mota = $request->mota;
+    	$sanpham1->chitietsanpham = $request->chitietsanpham;
+    	$sanpham1->cmtfb = $request->cmtfb;
+    	$sanpham1->seo = $request->seo;
+    	$sanpham1->id_danhmuc = $request->menu;
+    	// --- upload anh
+    	if($request->hasFile('img')){
+    	$hinhanh = $request->file('img');
+		$hinhanh_name = str_random(6)."-".$hinhanh->getClientOriginalName();
+		$hinhanh->move('layout/upload/img',$hinhanh_name);
+		$sanpham1->hinhanhchinh = $hinhanh_name;
+		}
+		// --- 
+
+    	$sanpham1->save();
+    	return back()->with('thongbao','Thêm thành công');
+    }
+
+    //sua san pham 1 menu 1
+    public function getsuamenu1sanpham($id){
+    	$data['menu'] =  danhmuc::all();
+    	$data['sanpham1'] =  sanpham::find($id);
+    	return view('admin.sanpham.sanpham.suasanpham1',$data);
+    }
+
+    public function postsuamenu1sanpham(Request $request,$id){
+    	$this->validate($request,[
+    		'tieude'=>'required',
+    		'giatien'=>'required',
+    		'thongsokythuat'=>'required',
+    		'mota'=>'required',
+    		'chitietsanpham'=>'required',
+    		'cmtfb'=>'required',
+    		'seo'=>'required',
+    		'id_danhmuc'=>'required',
+    		'img'=>'mimes:jpg,jpeg,png',
+    		// 'menu'=>'required',
+    	],[
+    		'tieude.required'=>'Chưa nhập tiêu đề',
+    		'giatien.required'=>'Chưa nhập giá tiền',
+    		'thongsokythuat.required'=>'Chưa nhập thông số kỹ thuật',
+    		'mota.required'=>'Chưa nhập mô tả',
+    		'chitietsanpham.required'=>'Chưa nhập chi tiết sản phẩm',
+    		'nhungcmtfb.required'=>'Chưa nhập nhúng cmt FB',
+    		'seo.required'=>'Chưa nhập seo',
+    		// 'id_danhmuc.required'=>'Chưa có menu',
+    		// 'img.required'=>'Chưa có hình ảnh',
+    		'img.mimes'=>'Chỉ được tải ảnh',
+    		'menu.mimes'=>'Chưa có menu',
+    	]);
+    	$sanpham1 =  sanpham::find($id);
+    	$sanpham1->tieude = $request->tieude;
+    	$sanpham1->giatien = $request->giatien;
+    	$sanpham1->thongsokythuat = $request->thongsokythuat;
+    	$sanpham1->mota = $request->mota;
+    	$sanpham1->chitietsanpham = $request->chitietsanpham;
+    	$sanpham1->cmtfb = $request->cmtfb;
+    	$sanpham1->seo = $request->seo;
+    	$sanpham1->id_danhmuc = $request->menu;
+    	// --- upload anh
+    	if($request->hasFile('img')){
+    	$hinhanh = $request->file('img');
+		$hinhanh_name = str_random(6)."-".$hinhanh->getClientOriginalName();
+		unlink('layout/upload/img/'.$sanpham1->hinhanhchinh);
+		$hinhanh->move('layout/upload/img',$hinhanh_name);
+		$sanpham1->hinhanhchinh = $hinhanh_name;
+		}
+		// --- 
+
+    	$sanpham1->save();
+    	return back()->with('thongbao','Cập nhật thành công');
+    }
+
+    public function getxoamenu1sanpham($id){
+    	$sanpham1 =  sanpham::find($id);
+    	unlink('layout/upload/img/'.$sanpham1->hinhanhchinh);
+    	$sanpham1 ->delete();
+    	return back()->with('thongbao','Xóa thành công');
+
+    }
+    //--end sua san pham 1 menu 1
+    //end tuong tac san pham 1
+
+     //tuong tac san pham 2 
+    public function getmenu2sanpham(){
+    	$data['menu'] =  danhmuc2::all();
+    	$data['sanpham2'] =  sanpham2::all();
+    	return view('admin.sanpham.sanpham.sanpham2',$data);
+    }
+
+    public function postmenu2sanpham(Request $request){
+    	$this->validate($request,[
+    		'tieude'=>'required',
+    		'giatien'=>'required',
+    		'thongsokythuat'=>'required',
+    		'mota'=>'required',
+    		'chitietsanpham'=>'required',
+    		'cmtfb'=>'required',
+    		'seo'=>'required',
+    		'menu'=>'required',
+    		'img'=>'required|mimes:jpg,jpeg,png',
+    		'menu'=>'required',
+    	],[
+    		'tieude.required'=>'Chưa nhập tiêu đề',
+    		'giatien.required'=>'Chưa nhập giá tiền',
+    		'thongsokythuat.required'=>'Chưa nhập thông số kỹ thuật',
+    		'mota.required'=>'Chưa nhập mô tả',
+    		'chitietsanpham.required'=>'Chưa nhập chi tiết sản phẩm',
+    		'nhungcmtfb.required'=>'Chưa nhập nhúng cmt FB',
+    		'seo.required'=>'Chưa nhập seo',
+    		'id_danhmuc2.required'=>'Chưa nhập menu',
+    		'img.required'=>'Chưa có hình ảnh',
+    		'img.mimes'=>'Chỉ được tải ảnh',
+    		'menu.mimes'=>'Chưa có menu',
+    	]);
+    	$sanpham2 = new sanpham2;
+    	$sanpham2->tieude = $request->tieude;
+    	$sanpham2->giatien = $request->giatien;
+    	$sanpham2->thongsokythuat = $request->thongsokythuat;
+    	$sanpham2->mota = $request->mota;
+    	$sanpham2->chitietsanpham = $request->chitietsanpham;
+    	$sanpham2->cmtfb = $request->cmtfb;
+    	$sanpham2->seo = $request->seo;
+    	$sanpham2->id_danhmuc2 = $request->menu;
+    	// --- upload anh
+    	if($request->hasFile('img')){
+    	$hinhanh = $request->file('img');
+		$hinhanh_name = str_random(6)."-".$hinhanh->getClientOriginalName();
+		$hinhanh->move('layout/upload/img',$hinhanh_name);
+		$sanpham2->hinhanhchinh = $hinhanh_name;
+		}
+		// --- 
+
+    	$sanpham2->save();
+    	return back()->with('thongbao','Thêm thành công');
+    }
+
+    //sua san pham 2 menu 2
+    public function getsuamenu2sanpham($id){
+    	$data['menu'] =  danhmuc::all();
+    	$data['sanpham2'] =  sanpham2::find($id);
+    	return view('admin.sanpham.sanpham.suasanpham2',$data);
+    }
+
+    public function postsuamenu2sanpham(Request $request,$id){
+    	$this->validate($request,[
+    		'tieude'=>'required',
+    		'giatien'=>'required',
+    		'thongsokythuat'=>'required',
+    		'mota'=>'required',
+    		'chitietsanpham'=>'required',
+    		'cmtfb'=>'required',
+    		'seo'=>'required',
+    		'id_danhmuc2'=>'required',
+    		'img'=>'mimes:jpg,jpeg,png',
+    		// 'menu'=>'required',
+    	],[
+    		'tieude.required'=>'Chưa nhập tiêu đề',
+    		'giatien.required'=>'Chưa nhập giá tiền',
+    		'thongsokythuat.required'=>'Chưa nhập thông số kỹ thuật',
+    		'mota.required'=>'Chưa nhập mô tả',
+    		'chitietsanpham.required'=>'Chưa nhập chi tiết sản phẩm',
+    		'nhungcmtfb.required'=>'Chưa nhập nhúng cmt FB',
+    		'seo.required'=>'Chưa nhập seo',
+    		'id_danhmuc2.required'=>'Chưa có menu',
+    		// 'img.required'=>'Chưa có hình ảnh',
+    		'img.mimes'=>'Chỉ được tải ảnh',
+    		// 'menu.mimes'=>'Chưa có menu',
+    	]);
+    	$sanpham2 =  sanpham2::find($id);
+    	$sanpham2->tieude = $request->tieude;
+    	$sanpham2->giatien = $request->giatien;
+    	$sanpham2->thongsokythuat = $request->thongsokythuat;
+    	$sanpham2->mota = $request->mota;
+    	$sanpham2->chitietsanpham = $request->chitietsanpham;
+    	$sanpham2->cmtfb = $request->cmtfb;
+    	$sanpham2->seo = $request->seo;
+    	$sanpham2->id_danhmuc2 = $request->menu;
+    	// --- upload anh
+    	if($request->hasFile('img')){
+    	$hinhanh = $request->file('img');
+		$hinhanh_name = str_random(6)."-".$hinhanh->getClientOriginalName();
+		unlink('layout/upload/img/'.$sanpham2->hinhanhchinh);
+		$hinhanh->move('layout/upload/img',$hinhanh_name);
+		$sanpham2->hinhanhchinh = $hinhanh_name;
+		}
+		// --- 
+
+    	$sanpham1->save();
+    	return back()->with('thongbao','Cập nhật thành công');
+    }
+
+    public function getxoamenu2sanpham($id){
+    	$sanpham2 =  sanpham::find($id);
+    	unlink('layout/upload/img/'.$sanpham2->hinhanhchinh);
+    	$sanpham2 ->delete();
+    	return back()->with('thongbao','Xóa thành công');
+
+    }
+    //--end sua san pham 1 menu 1
+    //end tuong tac san pham 1
 
 
     // public function test(){

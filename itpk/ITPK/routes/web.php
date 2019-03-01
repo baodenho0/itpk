@@ -86,9 +86,18 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('san-pham/menu-2/xoa/{id}', 'sanphamController@getxoamenu2');
     //end menu cap 1 2
     //-- san pham menu
-    //lam đến đây!
+    //san pham 1
     Route::get('san-pham/menu-1/san-pham', 'sanphamController@getmenu1sanpham');
+    Route::post('san-pham/menu-1/san-pham', 'sanphamController@postmenu1sanpham');
+    Route::get('san-pham/menu-1/san-pham/sua/{id}', 'sanphamController@getsuamenu1sanpham');
+    Route::post('san-pham/menu-1/san-pham/sua/{id}', 'sanphamController@postsuamenu1sanpham');
+    Route::get('san-pham/menu-1/san-pham/xoa/{id}', 'sanphamController@getxoamenu1sanpham');
+    //san pham 2
     Route::get('san-pham/menu-2/san-pham', 'sanphamController@getmenu2sanpham');
+    Route::post('san-pham/menu-2/san-pham', 'sanphamController@postmenu2sanpham');
+    Route::get('san-pham/menu-2/san-pham/sua/{id}', 'sanphamController@getsuamenu2sanpham');
+    Route::post('san-pham/menu-2/san-pham/sua/{id}', 'sanphamController@postsuamenu2sanpham');
+    Route::get('san-pham/menu-2/san-pham/xoa/{id}', 'sanphamController@getxoamenu2sanpham');
     //end san pham menu
     //--
 
