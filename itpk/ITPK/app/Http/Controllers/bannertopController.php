@@ -16,7 +16,7 @@ class bannertopController extends Controller
 
     public function postbannertop(Request $request){
     	$this->validate($request,[
-    		'bannerdautrang'=>'required',
+    		'bannerdautrang'=>'mimes:jpg,jpeg,png',
     		'logo'=>'required',
     		'hotline'=>'required',
     		'diachi'=>'required',
@@ -24,7 +24,7 @@ class bannertopController extends Controller
     		'img'=>'mimes:jpg,jpeg,png',
     		'slogan'=>'required',
     	],[
-    		'bannerdautrang.required'=>'Chưa nhập Bannner đầu trang',
+    		'bannerdautrang.mimes'=>'Chưa có Banner đầu trang',
     		'logo.required'=>'Chưa nhập Logo đầu trang',
     		'hotline.required'=>'Chưa nhập Hotline đầu trang',
     		'diachi.required'=>'Chưa nhập địa chỉ đầu trang',
@@ -34,7 +34,16 @@ class bannertopController extends Controller
     		'slogan.required'=>'Chưa nhập slogan đầu trang',
     	]);
     	$banner_top = banner_top::first();
-    	$banner_top->bannerdautrang = $request->bannerdautrang;
+    	// $banner_top->bannerdautrang = $request->bannerdautrang;
+        // --- upload banner dau trang
+        if($request->hasFile('bannerdautrang')){
+        $hinhanh = $request->file('bannerdautrang');
+        $hinhanh_name = str_random(4)."-".$hinhanh->getClientOriginalName();
+        unlink('layout/upload/img/'.$banner_top->bannerdautrang);
+        $hinhanh->move('layout/upload/img',$hinhanh_name);
+        $banner_top->bannerdautrang = $hinhanh_name;
+        }
+        // --- 
     	$banner_top->logo = $request->logo;
     	$banner_top->hotline = $request->hotline;
     	$banner_top->diachi = $request->diachi;

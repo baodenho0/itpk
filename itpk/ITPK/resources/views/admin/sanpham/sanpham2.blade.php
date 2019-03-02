@@ -4,7 +4,7 @@
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Danh mục Sản phẩm </h1>
+				<h1 class="page-header">Danh mục Sản phẩm</h1>
 				@include('errors.note')
 			</div>
 		</div><!--/.row-->
@@ -14,7 +14,7 @@
 					<div class="panel panel-primary">
 						<div class="panel-heading">
 							Thêm sản phẩm
-							 
+							
 						</div>
 						
 						<div class="panel-body">
@@ -68,12 +68,13 @@
 			<div class="col-xs-12 col-md-7 col-lg-7">
 				<div class="panel panel-primary">
 					<div class="panel-heading">Danh sách sản phẩm</div>
+					
 					<div class="panel-body">
 						<div class="bootstrap-table">
 							<table class="table table-bordered">
 				              	<thead>
 					                <tr class="bg-primary">
-					                  <th>Hình ảnh chính </th>
+					                  <th>Hình ảnh chính</th>
 					                  <th>Tiêu đề</th>
 					                  <th>Giá tiền</th>
 					                  <th>Thuộc menu</th>
@@ -81,15 +82,15 @@
 					                </tr>
 				              	</thead>
 				              	<tbody>
-				              		@foreach ($sanpham1 as $sp1)
+				              		@foreach ($sanpham2 as $sp2)
 				              			<tr>
-				              				<td><img width="40%" src="upload/img/{{$sp1->hinhanhchinh}}" class="thumbnail" alt=""></td>
-											<td>{{$sp1->tieude}}</td>
-											<td>{{$sp1->giatien}}</td>
-											<td>{{$sp1->danhmuc->tendanhmuc}}</td>
+				              				<td><img width="40%" src="upload/img/{{$sp2->hinhanhchinh}}" class="thumbnail" alt=""></td>
+											<td>{{$sp2->tieude}}</td>
+											<td>{{$sp2->giatien}}</td>
+											<td>{{$sp2->danhmuc2->tendanhmuc}}</td>
 											<td>
-					                    		<a href="{{asset('admin/san-pham/menu-1/san-pham/sua/'.$sp1->id)}}" class="btn btn-warning"><span class=""></span> Sửa</a>
-					                    		<a href="{{asset('admin/san-pham/menu-1/san-pham/xoa/'.$sp1->id)}}" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><span class=""></span> Xóa</a>
+					                    		<a href="{{asset('admin/san-pham/menu-2/san-pham/sua/'.$sp2->id)}}" class="btn btn-warning"><span class=""></span> Sửa</a>
+					                    		<a href="{{asset('admin/san-pham/menu-2/san-pham/xoa/'.$sp2->id)}}" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><span class=""></span> Xóa</a>
 
 					                  		</td>
 					                  	</tr>

@@ -103,8 +103,12 @@ Route::group(['prefix' => 'admin'], function() {
 
 });
 
-Route::get('trang-chu', 'nguoidungController@gettrangchu');
+Route::get('/', 'nguoidungController@gettrangchu');
 Route::get('gioi-thieu', 'nguoidungController@getgioithieu');
+Route::get('dich-vu', 'nguoidungController@getdichvu');
+Route::get('lien-he', 'nguoidungController@getlienhe');
+Route::get('tuyen-dung', 'nguoidungController@gettuyendung');
+Route::get('tin-tuc', 'nguoidungController@gettintuc');
 
 // Route::get('test', 'sanphamController@test');
 

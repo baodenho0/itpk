@@ -19,8 +19,9 @@
 							<div class="row" style="margin-bottom:40px">
 								<div class="col-xs-8">
 									<div class="form-group" >
-										<label>Banner đầu trang</label>
-										<input value="{{$bannertop->bannerdautrang}}" required type="text" name="bannerdautrang" class="form-control">
+										<label>Background</label>
+										<input accept="image/*"  id="img" type="file" name="bannerdautrang" class="form-control hidden" onchange="changeImg(this)">
+					                    <img  id="avatar" class="thumbnail" width="300px" src="upload/img/{{$bannertop->bannerdautrang}}" >
 									</div>
 									<div class="form-group" >
 										<label>Logo</label>

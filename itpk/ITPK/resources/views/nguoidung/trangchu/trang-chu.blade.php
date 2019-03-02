@@ -3,18 +3,32 @@
 @section('noidung')
 
 <div class="main bg">
-				<div><img class='banner'src="img/2.png" alt=""></div>
+				<div><img class='banner'src="upload/img/{{$banner->hinhanh}}" alt=""></div>
 				<!-- slide -->
 				<div class="main-1">
 					<div id="carousel-id" class="carousel slide" data-ride="carousel">
 						<div class="carousel-inner">
-							<div class="item active">
+							@php
+								$i = 0;
+							@endphp
+							@foreach ($slide as $sl)
+								<div class="item 
+								@php
+									if($i==0){
+									echo "active";
+									}
+									$i++;
+								@endphp
+
+								">
 								<div class="row">
-								<div class="col-xs-4"><div class="row"><img class="banner z_index" alt="First slide" src="img/slide-31.png"><p class="z_index_p">lorem ...</p></div></div>
-								<div class="col-xs-4"><div class="row"><img class="banner z_index" alt="First slide" src="img/slide-31.png"><p class="z_index_p">lorem ...</p></div></div>
-								<div class="col-xs-4"><div class="row"><img class="banner z_index" alt="First slide" src="img/slide-31.png"><p class="z_index_p">lorem ...</p></div></div>
+								<div class="col-xs-4"><a href="{{$sl->link}}"><div class="row"><img class="banner z_index" alt="{{$sl->tieude}}" src="upload/img/{{$sl->hinhanh}}"><p class="z_index_p">{{$sl->tieude}}</p></div></a></div>
+								<div class="col-xs-4"><a href="{{$sl->link}}"><div class="row"><img class="banner z_index" alt="{{$sl->tieude}}" src="upload/img/{{$sl->hinhanh}}"><p class="z_index_p">{{$sl->tieude}}</p></div></a></div>
+								<div class="col-xs-4"><a href="{{$sl->link}}"><div class="row"><img class="banner z_index" alt="{{$sl->tieude}}" src="upload/img/{{$sl->hinhanh}}"><p class="z_index_p">{{$sl->tieude}}</p></div></a></div>
 								</div>
 							</div>
+							@endforeach
+							
 							<!-- <div class="item">
 								<img class="banner" alt="Second slide" src="img/slide-1.png">
 							</div>
@@ -29,7 +43,19 @@
 				</div>
 				<div class="marg"><h4 class="button-mid">SẢN PHẨM MỚI</h4></div>
 				<div class="main-2">
-					<div class="tieude"><h5>TIÊU ĐỀ DANH MỤC CẤP 1</h5></div><br>
+					<div class="tieude"><h5>
+						@php
+							$ii=0;
+						@endphp
+						@foreach ($danhmuc as $dm)
+						@php
+							if($ii==0){
+								echo $dm->tendanhmuc;
+							}
+							$ii++;
+						@endphp
+						@endforeach
+					</h5></div><br>
 					
 							<div id="carousel-id-1" class="carousel slide" data-ride="carousel">
 								<div class="carousel-inner">
@@ -69,7 +95,20 @@
 					<!-- endmain 2 -->
 
 				<div class="main-2">
-					<div class="tieude"><h5>TIÊU ĐỀ DANH MỤC CẤP 2</h5></div><br>
+					<div class="tieude"><h5>
+						@php
+							$iii=0;
+						@endphp
+						@foreach ($danhmuc as $dm)
+						@php
+							if($iii==1){
+								echo $dm->tendanhmuc;
+							}
+							$iii++;
+						@endphp
+						@endforeach
+
+					</h5></div><br>
 					<div id="carousel-id-2" class="carousel slide" data-ride="carousel">
 									
 								<div class="carousel-inner">

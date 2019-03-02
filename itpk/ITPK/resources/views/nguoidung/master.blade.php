@@ -25,20 +25,20 @@
 			<div class="header">
 				<div class="diachi">
 					<div class="row">
-					<div class="col-md-4"><small>Địa chỉ số 21, đường d10, p.tây thạnh, q.tân phú, tp.hcm</small></div>
+					<div class="col-md-4"><small>{{$banner_top->diachi}}</small></div>
 					<div class="col-md-5"><input type="text" placeholder="Nhập từ khóa tìm kiếm"></div>
-					<div class="col-md-3"><small>email roteeachvietnam.gmail.com</small></div>
+					<div class="col-md-3"><small>{{$banner_top->email}}</small></div>
 					</div>
 				</div>
 
-				<div ><img class="banner" src="img/banner.png" alt=""></div>
+				<div ><img class="banner" src="upload/img/{{$banner_top->bannerdautrang}}" alt="banner"></div>
 			</div>
 			<!-- endheader -->
 
-			<nav class="navbar navbar-default" role="navigation">
+			<nav id="navbar" class="navbar navbar-default" role="navigation">
 				<div class="container">
 					<!-- Brand and toggle get grouped for better mobile display -->
-					<div class="navbar-header">
+					<div id="navbar-header-menu" class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
 							<span>MENU</span>
 						</button>
@@ -46,15 +46,15 @@
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse navbar-ex1-collapse ">
+					<div  class="collapse navbar-collapse navbar-ex1-collapse  ">
 						<ul class="nav navbar-nav ">
-							<li ><a href="#">TRANG CHỦ</a></li>
-							<li ><a href="#">GIỚI THIỆU</a></li>
-							<li><a href="#">SẢN PHẨM</a></li>
-							<li ><a href="#">DỊCH VỤ</a></li>
-							<li><a href="#">TIN TỨC</a></li>
-							<li ><a href="#">TUYỂN DỤNG</a></li>
-							<li><a href="#">LIÊN HỆ</a></li>
+							<li ><a href="{{ asset('/') }}">TRANG CHỦ</a></li>
+							<li ><a href="{{ asset('/gioi-thieu') }}">GIỚI THIỆU</a></li>
+							<li><a href="{{ asset('/san-pham') }}">SẢN PHẨM</a></li>
+							<li ><a href="{{ asset('/dich-vu') }}">DỊCH VỤ</a></li>
+							<li><a href="{{ asset('tin-tuc') }}">TIN TỨC</a></li>
+							<li ><a href="{{ asset('/tuyen-dung') }}">TUYỂN DỤNG</a></li>
+							<li><a href="{{ asset('/lien-he') }}">LIÊN HỆ</a></li>
 						</ul>
 						
 					</div><!-- /.navbar-collapse -->
@@ -67,35 +67,28 @@
 				<div class="row">
 				<div class="col-md-4">
 					<h3 class="h3-1">VỀ CHÚNG TỐI</h3>
-					<p>ROTECH VIỆT NAM là một công ty chuyên nghiên cứu và cung cấp các sản phẩm về chăm sóc sức khỏe của thế kỷ 21 với tầm nhìn làm cho Việt Nam trở thành một quốc gia lành mạnh,</p>
+					<p>{{$footer->vechungtoi}}</p>
 					<div class="row">
-					<div class="col-md-6">Hoteline: 0933 14 2323</div>
-					<div class="col-md-6">Hoteline: 0933 14 2323</div>
+					<div class="col-md-6">{{$footer->hotline}}</div>
+					<div class="col-md-6">{{$footer->email}}</div>
 					</div>
 					<h3 class="h3-1">THEO DÕI CHÚNG TÔI</h3>
 					<h3 class="h3-1">HỖ TRỢ TRỰC TUYẾN</h3>
 					<div class="row">
-					<div class="col-md-6">Kinh doanh: 0933 14 2323</div>
-					<div class="col-md-6">Kỹ thuật: 0933 14 2323</div>
+					<div class="col-md-6">{{$footer->hotrotructuyen}}</div>
 					</div>
 				</div>
 
 				<div class="col-md-4">
 					<h3 class="h3-1">CÔNG TY TNHH ROTECH VIỆT NAM</h3>
-					<p>Địa chỉ:</p>
-					<p>Điện thoại:</p>
-					<p>Website:</p>
+					<p>{{$footer->trongtincty}}</p>
 					<h3 class="h3-1">CHÍNH SÁCH</h3>
-					<p>Chính sách mua hàng</p>
-					<p>Chính sách đổi trả hàng</p>
-					<p>Hướng dẫn thanh toán online</p>
-					<p>Hướng dẫn bảo hành sản phẩm</p>
-					<img class="banner"src="img/7.png" alt="">
-					<small>All rights Copyright 2018 ROTECH Desigh by BM Web</small>
+					<p>{!!$footer->chinhsach!!}</p>
+					
 				</div>
 				<div class="col-md-4">
 					<h3 class="h3-1">FANPAGE</h3>
-					<img class="banner" src="img/8.png" alt="">
+					<p>{!!$footer->fanpage!!}</p>
 				</div>
 				</div>
 			</div>
@@ -115,6 +108,28 @@
 				<!-- jQuery -->
 		<script src="js/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js" ></script>
+		<script>
+		
+			window.onscroll = function() {scrollFunction()};
 
+			function scrollFunction() {
+				var mql = window.matchMedia("(min-width: 768px)");
+			  if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+			  	if(mql.matches){
+			    document.getElementById("navbar").style.position = "fixed";
+				}
+			    // document.getElementById("navbar").style.z-index = "99999";
+			    // document.getElementById("navbar-header-menu").style.display = "none";
+			  } else {
+			    document.getElementById("navbar").style.position = "static";
+			    // var element = document.getElementById("navbar")
+			    // element.parentNode.removeChild(element);
+			  }
+			}
+
+
+		
+			
+</script>
 </body>
 </html>

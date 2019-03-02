@@ -3,9 +3,8 @@
 
 <div class="main bg">
 		<div class="noidung">
-			<div class="tieude"><h1>GIỚI THIỆU</h1></div>
-			<div class="noidung_1">{!!$gioithieu->noidung!!}</div>
-			
+			<div class="tieude"><h1>DỊCH VỤ</h1></div>
+			<div class="noidung_1">{!!$dichvu->noidung!!}</div>
 		</div>		
 				
 

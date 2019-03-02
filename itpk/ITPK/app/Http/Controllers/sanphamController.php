@@ -143,7 +143,7 @@ class sanphamController extends Controller
     public function getmenu1sanpham(){
     	$data['menu'] =  danhmuc::all();
     	$data['sanpham1'] =  sanpham::all();
-    	return view('admin.sanpham.sanpham.sanpham1',$data);
+    	return view('admin.sanpham.sanpham1',$data);
     }
 
     public function postmenu1sanpham(Request $request){
@@ -197,7 +197,7 @@ class sanphamController extends Controller
     public function getsuamenu1sanpham($id){
     	$data['menu'] =  danhmuc::all();
     	$data['sanpham1'] =  sanpham::find($id);
-    	return view('admin.sanpham.sanpham.suasanpham1',$data);
+    	return view('admin.sanpham.suasanpham1',$data);
     }
 
     public function postsuamenu1sanpham(Request $request,$id){
@@ -262,7 +262,7 @@ class sanphamController extends Controller
     public function getmenu2sanpham(){
     	$data['menu'] =  danhmuc2::all();
     	$data['sanpham2'] =  sanpham2::all();
-    	return view('admin.sanpham.sanpham.sanpham2',$data);
+    	return view('admin.sanpham.sanpham2',$data);
     }
 
     public function postmenu2sanpham(Request $request){
@@ -316,7 +316,7 @@ class sanphamController extends Controller
     public function getsuamenu2sanpham($id){
     	$data['menu'] =  danhmuc::all();
     	$data['sanpham2'] =  sanpham2::find($id);
-    	return view('admin.sanpham.sanpham.suasanpham2',$data);
+    	return view('admin.sanpham.suasanpham2',$data);
     }
 
     public function postsuamenu2sanpham(Request $request,$id){

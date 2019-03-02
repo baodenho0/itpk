@@ -1,4 +1,5 @@
 .bg{
+  margin-top: -20px;
   background-image: url("../img/bg.jpg");
   background-repeat: no-repeat, repeat;
   background-color: #cccccc;
@@ -145,6 +146,10 @@ p{
 	.z_index{
 		position: static;
 	}
+	.main-1, .main-2{
+	padding-left: 0px;
+	padding-right: 0px;
+}
 
 }
 
@@ -154,6 +159,9 @@ p{
 		margin-left: 10px;
 
 	}
+	.h3-1{
+	font-size: 15px;
+}
 }
 
 @media(max-width: 1200px){
@@ -172,13 +180,60 @@ p{
 	border-radius: 15px;
 	}
 }
+@media(min-width: 1200px){
+	.navbar-default .navbar-collapse, .navbar-default .navbar-form{
+          	margin-left: 135px;
+          }	
+}
+@media(min-width: 767px) and ( max-width: 990px){
+	.navbar-default .navbar-nav>li>a{
+	font-size:13px;
+	}
+}
+
 @media (max-width: 1000px){
 	.navbar-toggle {
-	    display: block;
+	    /*display: block;*/
 	}
 	.collapse {
 		display: none;
 	}
+	.navbar-nav>li{
+		/*float:none;*/
+	}
+	.navbar-nav{
+		/*display: none;*/
+	}
 }
 
-	
+
+ /*fix top*/
+ 
+
+      #navbar {
+              /*overflow: hidden;*/
+              /*background-color: #333;*/
+              top: 00px;
+              /*position: fixed;*/
+              /*width: 50%;*/
+              z-index: 999999999999;
+           }
+        .carousel-control{
+        	width: 5%;
+        }
+
+
+ .phantrang{
+ 	margin:auto;
+ }
+ .pagination>li:first-child>a, .pagination>li:first-child>span{
+ 	border-radius: 0px;
+ }
+ .pagination>li:last-child>a, .pagination>li:last-child>span{
+ 	border-radius: 0px;
+ }
+ .pagination>.active>a, .pagination>.active>a:focus, 
+ .pagination>.active>a:hover, .pagination>.active>span, 
+ .pagination>.active>span:focus, .pagination>.active>span:hover{
+ 	background-color: #00a859;
+ }
