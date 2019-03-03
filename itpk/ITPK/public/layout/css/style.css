@@ -237,3 +237,19 @@ p{
  .pagination>.active>span:focus, .pagination>.active>span:hover{
  	background-color: #00a859;
  }
+
+.navbar-default .navbar-nav>.open>a, 
+.navbar-default .navbar-nav>.open>a:focus, 
+.navbar-default .navbar-nav>.open>a:hover{
+	background-color:#ff6600; 
+	color:#fff;
+}
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover,
+.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus {
+	background-color:#ff6600; 
+	color:#fff;
+}
+.dropdown-menu>li>a, .navbar-nav>li>.dropdown-menu,.open>.dropdown-menu{
+	background: #00a859;
+	color:#fff;
+}

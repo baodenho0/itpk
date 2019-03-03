@@ -10,6 +10,7 @@
 						<div class="carousel-inner">
 							@php
 								$i = 0;
+								$sl1 = 0;
 							@endphp
 							@foreach ($slide as $sl)
 								<div class="item 
@@ -22,9 +23,9 @@
 
 								">
 								<div class="row">
-								<div class="col-xs-4"><a href="{{$sl->link}}"><div class="row"><img class="banner z_index" alt="{{$sl->tieude}}" src="upload/img/{{$sl->hinhanh}}"><p class="z_index_p">{{$sl->tieude}}</p></div></a></div>
-								<div class="col-xs-4"><a href="{{$sl->link}}"><div class="row"><img class="banner z_index" alt="{{$sl->tieude}}" src="upload/img/{{$sl->hinhanh}}"><p class="z_index_p">{{$sl->tieude}}</p></div></a></div>
-								<div class="col-xs-4"><a href="{{$sl->link}}"><div class="row"><img class="banner z_index" alt="{{$sl->tieude}}" src="upload/img/{{$sl->hinhanh}}"><p class="z_index_p">{{$sl->tieude}}</p></div></a></div>
+								<div class="col-xs-4"><a href="#"><div class="row"><img class="banner z_index" alt="{{$sl->tieude}}" src="upload/img/{{$sl->hinhanh}}"><p class="z_index_p">{{$sl->tieude}}</p></div></a></div>
+								<div class="col-xs-4"><a href="#"><div class="row"><img class="banner z_index" alt="{{$sl->tieude}}" src="upload/img/{{$sl->hinhanh}}"><p class="z_index_p">{{$sl->tieude}}</p></div></a></div>
+								<div class="col-xs-4"><a href="#"><div class="row"><img class="banner z_index" alt="{{$sl->tieude}}" src="upload/img/{{$sl->hinhanh}}"><p class="z_index_p">{{$sl->tieude}}</p></div></a></div>
 								</div>
 							</div>
 							@endforeach

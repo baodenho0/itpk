@@ -10,6 +10,7 @@
 	<base href="{{ asset('layout') }}/">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
+	
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -50,7 +51,31 @@
 						<ul class="nav navbar-nav ">
 							<li ><a href="{{ asset('/') }}">TRANG CHỦ</a></li>
 							<li ><a href="{{ asset('/gioi-thieu') }}">GIỚI THIỆU</a></li>
-							<li><a href="{{ asset('/san-pham') }}">SẢN PHẨM</a></li>
+							{{-- <li><a href="{{ asset('/san-pham') }}">SẢN PHẨM</a></li> --}}
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">DANH MỤC <b class="caret"></b></a>
+					                <ul class="dropdown-menu">
+					                	@foreach ($danhmuc as $menu1)
+					                		  <li>
+							                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{$menu1->tendanhmuc}}<b class="caret"></b></a>
+									{{-- loi so sanh ????? --}}
+							                      @if($menu1->danhmuc2 )
+							                      	<ul class="dropdown-menu">
+								                      		@foreach ($menu1->danhmuc2 as $menu2)
+								                          <li><a href="#">{{$menu2->tendanhmuc}}</a></li>
+								                             @endforeach
+								                        </ul>
+								                    @endif
+
+							                       
+							                    
+							                     
+							                   </li>
+							                   {{-- <li class="divider"></li> --}}
+					                	@endforeach
+					                   
+					               </ul>
+							</li>
 							<li ><a href="{{ asset('/dich-vu') }}">DỊCH VỤ</a></li>
 							<li><a href="{{ asset('tin-tuc') }}">TIN TỨC</a></li>
 							<li ><a href="{{ asset('/tuyen-dung') }}">TUYỂN DỤNG</a></li>
@@ -128,8 +153,26 @@
 			}
 
 
+			$(document).ready(function() {
+				  $('.navbar a.dropdown-toggle').click( function(e) {
+				     var $el = $(this);
+				     var $parent = $(this).offsetParent(".dropdown-menu");
+				     $(this).parent("li").toggleClass('open');
+				     if(!$parent.parent().hasClass('nav')) {
+				          $el.next().css({"top": $el[0].offsetTop, "left": $parent.outerWidth() - 4});
+				     }
+				     $('.nav li.open').not($(this).parents("li")).removeClass("open");
+				     return false;
+				    });
+				});
+
+
 		
 			
 </script>
+@yield('script')
+
 </body>
 </html>
+
+
