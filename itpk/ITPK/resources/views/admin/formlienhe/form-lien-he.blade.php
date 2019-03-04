@@ -24,25 +24,23 @@
 											<th>Địa chỉ </th>
 											<th>SĐT</th>
 											<th>Email</th>
+											<th>Thời gian liên hệ</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>1</td>
-											<td>iPhone 7 Plus 32GB quốc tế Mate Black</td>
-											<td>21.990.000 VND</td>
-											<td>iPhone</td>
-											<td>iPhone</td>
+										@foreach ($form_lienhe as $lh)
+											<tr>
+											<td>{{$lh->id}}</td>
+											<td>{{$lh->hoten}}</td>
+											<td>{{$lh->diachi}}</td>
+											<td>{{$lh->sdt}}</td>
+											<td>{{$lh->email}}</td>
+											<td>{{$lh->created_at}}</td>
 										</tr>
+										@endforeach
+										
 
-										<tr>
-											<td>1</td>
-											<td>iPhone 7 Plus 32GB quốc tế Mate Black</td>
-											<td>21.990.000 VND</td>
-											<td>iPhone</td>
-											<td>iPhone</td>
-											
-										</tr>
+										
 										
 									</tbody>
 								</table>							

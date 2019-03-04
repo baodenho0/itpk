@@ -42,8 +42,11 @@ class nguoidungController extends Controller
     }
     public function gettrangchu(){
     	$data['banner'] = banner::first();
-    	$data['slide'] = slide::all();
-    	$data['duannoibat'] = duannoibat::all();
+        $data['slide'] = slide::all();
+    	$data['video'] = video::first();
+        $data['duannoibat'] = duannoibat::all();
+    	$data['tintuc'] = tintuc::where('noibat',1)->take(4)->get();
+
     	return view('nguoidung.trangchu.trang-chu',$data);
     }
 
@@ -71,7 +74,34 @@ class nguoidungController extends Controller
     	$data['tintuc'] = tintuc::orderBy('id','desc')->paginate(1);
     	return view('nguoidung.tintuc.tin-tuc',$data);
     }
-    //den day
 
+    //thong tin lien he
+    public function postthongtinlienhe(Request $request){
+        $lienhe = new form_lienhe;
+        $lienhe->hoten = $request->hoten;
+        $lienhe->diachi = $request->diachi;
+        $lienhe->sdt = $request->sdt;
+        $lienhe->email = $request->email;
+        $lienhe->save();
+        return back()->with('thongbao','Liên hệ thành công');
+    }
+    //end thong tin lien he
+
+    public function posttimkiem(Request $request){
+        $data['tintuc'] = tintuc::where('tieude','like',"%".$request->search."%")->take(2)->get();
+          return view('nguoidung.timkiem.tim-kiem',$data);
+         // echo $data->tieude;
+    }
+
+    
+
+    //den day
+    // public function test(){
+    //     $tintuc = tintuc::where('noibat',1)->take(4)->get();
+        
+       
+    //         echo $tintuc[1]->mota;
+        
+    // }
 
 }

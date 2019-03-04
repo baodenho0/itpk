@@ -234,59 +234,105 @@
 					<div class="row">
 					<div class="col-md-8"><div class="marg"><h5 class="button-mid">TIN TỨC</h5></div>
 						<div class="col-md-5">
-							<img class="banner" src="img/3.png" alt="">
-							<h3 class="h3"><strong>TẠI SAO NÊN THAY LÕI MÁY LỌC NƯỚC ĐỊNH KỲ</strong></h3>
-							<p>...TẠI SAO NÊN THAY LÕI MÁY LỌC NƯỚC ĐỊNH KỲ...</p>
+							<div class="row">
+							<img class="banner" src="upload/img/
+							@php
+								echo $tintuc[0]->hinhanh;
+								@endphp
+							 " alt="">
+							<h3 class="h3"><strong>@php
+								echo $tintuc[0]->tieude;
+							@endphp</strong></h3>
+							<p>
+								@php
+								echo $tintuc[0]->mota;
+								@endphp
+							</p>
+							</div>
 						</div>
+					@if ($tintuc[1]->hinhanh)
 						<div class="col-md-7">
 							<div class="row">
 								<div class="col-md-5">
 									<div class="row">
-									<img class="banner" src="img/4.png" alt="">
+									<img class="banner" src="upload/img/
+									@php
+									echo $tintuc[1]->hinhanh;
+									@endphp" alt="">
 									</div>
 								</div>
 								<div class="col-md-7">
-									<h3 class="h3"><strong>MÁY LỌC NƯỚC RO TỐT NHẤT PHẢI CÓ NHỮNG ĐẶC ĐIỂM SAU</strong></h3>
-									<p>Trên thị trường có vô số sản phẩm máy lọc nước.</p>
+									<h3 class="h3"><strong>@php
+								echo $tintuc[1]->tieude;
+							@endphp</strong></h3>
+									<p>@php
+								echo $tintuc[1]->mota;
+								@endphp</p>
 								</div>
 							</div>
 						</div>
 
-						<div class="col-md-7 ">
-							<div class="row">
-								<div class="col-md-5 ">
-									<div class="row">
-									<img class="banner" src="img/4.png" alt="">
-									</div>
-								</div>
-								<div class="col-md-7">
-									<h3 class="h3"><strong>MÁY LỌC NƯỚC RO TỐT NHẤT PHẢI CÓ NHỮNG ĐẶC ĐIỂM SAU</strong></h3>
-									<p>Trên thị trường có vô số sản phẩm máy lọc nước.</p>
-								</div>
-							</div>
-						</div>
+					@endif
 
-						<div class="col-md-7 ">
+					@if ($tintuc[2]->hinhanh)
+						<div class="col-md-7">
 							<div class="row">
 								<div class="col-md-5">
 									<div class="row">
-									<img class="banner" src="img/4.png" alt="">
+									<img class="banner" src="upload/img/
+									@php
+									echo $tintuc[2]->hinhanh;
+									@endphp" alt="">
 									</div>
 								</div>
 								<div class="col-md-7">
-									<h3 class="h3"><strong>MÁY LỌC NƯỚC RO TỐT NHẤT PHẢI CÓ NHỮNG ĐẶC ĐIỂM SAU</strong></h3>
-									<p>Trên thị trường có vô số sản phẩm máy lọc nước.</p>
+									<h3 class="h3"><strong>@php
+								echo $tintuc[2]->tieude;
+							@endphp</strong></h3>
+									<p>@php
+								echo $tintuc[2]->mota;
+								@endphp</p>
 								</div>
 							</div>
 						</div>
+
+					@endif
+
+					@if ($tintuc[3]->hinhanh)
+						<div class="col-md-7">
+							<div class="row">
+								<div class="col-md-5">
+									<div class="row">
+									<img class="banner" src="upload/img/
+									@php
+									echo $tintuc[3]->hinhanh;
+									@endphp" alt="">
+									</div>
+								</div>
+								<div class="col-md-7">
+									<h3 class="h3"><strong>@php
+								echo $tintuc[3]->tieude;
+							@endphp</strong></h3>
+									<p>@php
+								echo $tintuc[3]->mota;
+								@endphp</p>
+								</div>
+							</div>
+						</div>
+
+					@endif
+
+					
+						
+						
 					</div>
 					<div class="col-md-4">
 						<div class="row">
 						<div class="marg"><h5 class="button-mid">VIDEO</h5></div>
-						<img class="banner" src="img/video.png" alt="">
+						<div class="">{!!$video->link!!}</div>
 						<br>
 						<br>
-						<p>... lorem</p>
+						{{-- <p>... lorem</p> --}}
 						</div>
 					</div>
 					</div>

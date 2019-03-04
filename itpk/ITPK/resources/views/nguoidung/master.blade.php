@@ -27,7 +27,19 @@
 				<div class="diachi">
 					<div class="row">
 					<div class="col-md-4"><small>{{$banner_top->diachi}}</small></div>
-					<div class="col-md-5"><input type="text" placeholder="Nhập từ khóa tìm kiếm"></div>
+					<div class="col-md-5">
+						<form role="search" method="get" action="{{ asset('tin-tuc/tim-kiem/') }}">
+							{{-- @csrf() --}}
+						<div class="row">
+							<div class="col-md-8 col-xs-8">
+
+								<div class="row"><input class="form-control" type="text" name="search" placeholder="Nhập từ khóa tìm kiếm"></div>
+							</div>
+							<div class="col-md-4 col-xs-4">
+						<div class="row"><input class="btn" type="submit" value="Tìm kiếm"></div>
+							</div>
+						</div>
+					</div>
 					<div class="col-md-3"><small>{{$banner_top->email}}</small></div>
 					</div>
 				</div>
@@ -40,7 +52,7 @@
 				<div class="container">
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<div id="navbar-header-menu" class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+						<button type="button" class="navbar-toggle btn" data-toggle="collapse" data-target=".navbar-ex1-collapse">
 							<span>MENU</span>
 						</button>
 						<!-- <a class="navbar-brand navbar-toggle " href="#">TRANG CHỦ</a> -->
@@ -59,7 +71,7 @@
 					                		  <li>
 							                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{$menu1->tendanhmuc}}<b class="caret"></b></a>
 									{{-- loi so sanh ????? --}}
-							                      @if($menu1->danhmuc2 )
+							                      @if(count($menu1->danhmuc2) )
 							                      	<ul class="dropdown-menu">
 								                      		@foreach ($menu1->danhmuc2 as $menu2)
 								                          <li><a href="#">{{$menu2->tendanhmuc}}</a></li>
@@ -100,7 +112,7 @@
 					<h3 class="h3-1">THEO DÕI CHÚNG TÔI</h3>
 					<h3 class="h3-1">HỖ TRỢ TRỰC TUYẾN</h3>
 					<div class="row">
-					<div class="col-md-6">{{$footer->hotrotructuyen}}</div>
+					<div class="col-md-12">{{$footer->hotrotructuyen}}</div>
 					</div>
 				</div>
 

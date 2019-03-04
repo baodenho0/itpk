@@ -107,8 +107,11 @@ Route::get('/', 'nguoidungController@gettrangchu');
 Route::get('gioi-thieu', 'nguoidungController@getgioithieu');
 Route::get('dich-vu', 'nguoidungController@getdichvu');
 Route::get('lien-he', 'nguoidungController@getlienhe');
+Route::post('lien-he/thong-tin-lien-he', 'nguoidungController@postthongtinlienhe');
 Route::get('tuyen-dung', 'nguoidungController@gettuyendung');
 Route::get('tin-tuc', 'nguoidungController@gettintuc');
+Route::get('tin-tuc/tim-kiem/', 'nguoidungController@posttimkiem');
 
-// Route::get('test', 'sanphamController@test');
+
+ Route::get('test', 'nguoidungController@test');
 

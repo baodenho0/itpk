@@ -1,4 +1,5 @@
 @extends('nguoidung.master')
+@section('title','Dịch vụ')
 @section('noidung')
 
 <div class="main bg">
