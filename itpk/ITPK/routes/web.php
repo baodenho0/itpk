@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin','middleware'=>'checkdangxuat'], function() {
     //
     Route::get('trang-chu','trangchuController@gettrangchu');
     Route::get('banner-top', 'bannertopController@getbannertop');
@@ -100,6 +100,10 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('san-pham/menu-2/san-pham/xoa/{id}', 'sanphamController@getxoamenu2sanpham');
     //end san pham menu
     //--
+     //
+    Route::get('doi-mat-khau', 'trangchuController@getdoimatkhau');
+    Route::post('doi-mat-khau', 'trangchuController@postdoimatkhau');
+    //
 
 });
 
@@ -111,7 +115,16 @@ Route::post('lien-he/thong-tin-lien-he', 'nguoidungController@postthongtinlienhe
 Route::get('tuyen-dung', 'nguoidungController@gettuyendung');
 Route::get('tin-tuc', 'nguoidungController@gettintuc');
 Route::get('tin-tuc/tim-kiem/', 'nguoidungController@posttimkiem');
+Route::get('san-pham', 'nguoidungController@getsanpham');
+Route::get('san-pham-loai-1/{id}/{tieude}', 'nguoidungController@getchitietsanpham1');
+Route::get('san-pham-loai-2/{id}/{tieude}', 'nguoidungController@getchitietsanpham2');
+
+Route::group(['prefix' => 'admin/dang-nhap','middleware'=>'checkdangnhap'], function() {
+    Route::get('/', 'dangnhapController@getdangnhap');
+    Route::post('/', 'dangnhapController@postdangnhap');
+});
+Route::get('admin/dang-xuat', 'dangnhapController@getdangxuat');
 
 
- Route::get('test', 'nguoidungController@test');
+
 

@@ -20,7 +20,10 @@
 		<![endif]-->
 	</head>
 	<body>
+		
 		<!-- // -->
+	
+
 	<div class="container ">
 		<div class="row">
 			<div class="header">
@@ -33,12 +36,13 @@
 						<div class="row">
 							<div class="col-md-8 col-xs-8">
 
-								<div class="row"><input class="form-control" type="text" name="search" placeholder="Nhập từ khóa tìm kiếm"></div>
+								<div class="row"><input required="" class="form-control" type="text" name="search" placeholder="Nhập từ khóa tìm kiếm"></div>
 							</div>
 							<div class="col-md-4 col-xs-4">
 						<div class="row"><input class="btn" type="submit" value="Tìm kiếm"></div>
 							</div>
 						</div>
+						</form>
 					</div>
 					<div class="col-md-3"><small>{{$banner_top->email}}</small></div>
 					</div>
@@ -74,7 +78,7 @@
 							                      @if(count($menu1->danhmuc2) )
 							                      	<ul class="dropdown-menu">
 								                      		@foreach ($menu1->danhmuc2 as $menu2)
-								                          <li><a href="#">{{$menu2->tendanhmuc}}</a></li>
+								                          <li><a href="{{ asset('san-pham') }}">{{$menu2->tendanhmuc}}</a></li>
 								                             @endforeach
 								                        </ul>
 								                    @endif
@@ -106,8 +110,8 @@
 					<h3 class="h3-1">VỀ CHÚNG TỐI</h3>
 					<p>{{$footer->vechungtoi}}</p>
 					<div class="row">
-					<div class="col-md-6">{{$footer->hotline}}</div>
-					<div class="col-md-6">{{$footer->email}}</div>
+					<div class="col-md-4"><i class="glyphicon glyphicon-earphone"></i> {{$footer->hotline}}</div>
+					<div class="col-md-6"><i class="glyphicon glyphicon-envelope"></i> {{$footer->email}}</div>
 					</div>
 					<h3 class="h3-1">THEO DÕI CHÚNG TÔI</h3>
 					<h3 class="h3-1">HỖ TRỢ TRỰC TUYẾN</h3>
@@ -125,7 +129,7 @@
 				</div>
 				<div class="col-md-4">
 					<h3 class="h3-1">FANPAGE</h3>
-					<p>{!!$footer->fanpage!!}</p>
+					<div class="row banner">{!!$footer->fanpage!!}</div>
 				</div>
 				</div>
 			</div>

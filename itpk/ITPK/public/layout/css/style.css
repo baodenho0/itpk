@@ -13,7 +13,15 @@
 }
 .banner{
 	width: 100%;
+	/*height: 300px;*/
 }
+@media(min-width: 992px){
+	.banner_sanpham{
+	width: 100%;
+	height: 300px;
+}
+}
+
 .z_index{
 	position: absolute;
 	left: 0px;
@@ -280,4 +288,22 @@ p{
 	border-radius: 0px;
 	margin-bottom: -1px;
 	background-color: none;
+}
+.main-3{
+	margin-bottom: 10px;
+}
+
+.sanpham{
+	margin-right: 0px;
+    margin-left: 0px;
+}
+
+.sanpham>div>div>.khung-slide{
+	display: block;
+}
+.chitietsanpham{ 
+	padding: 10px;	
+}
+.noidung_sanpham{
+	height: 100px;
 }

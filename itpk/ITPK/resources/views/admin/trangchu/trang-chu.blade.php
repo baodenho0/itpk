@@ -7,7 +7,7 @@
 			</div>
 		</div><!--/.row-->
 									
-		<div class="row">
+		{{-- <div class="row">
 			<div class="col-xs-12 col-md-6 col-lg-3">
 				<div class="panel panel-blue panel-widget ">
 					<div class="row no-padding">
@@ -60,7 +60,7 @@
 					</div>
 				</div>
 			</div>
-		</div><!--/.row-->
+		</div><!-/.row-> --}}
 		
 		
 	</div>	<!--/.main-->

@@ -43,6 +43,7 @@ class nguoidungController extends Controller
     public function gettrangchu(){
     	$data['banner'] = banner::first();
         $data['slide'] = slide::all();
+        $data['doitac'] = doitac::all();
     	$data['video'] = video::first();
         $data['duannoibat'] = duannoibat::all();
     	$data['tintuc'] = tintuc::where('noibat',1)->take(4)->get();
@@ -91,6 +92,21 @@ class nguoidungController extends Controller
         $data['tintuc'] = tintuc::where('tieude','like',"%".$request->search."%")->take(2)->get();
           return view('nguoidung.timkiem.tim-kiem',$data);
          // echo $data->tieude;
+    }
+
+    public function getsanpham(){
+        $data['sanpham1'] = sanpham::all();
+        $data['sanpham2'] = sanpham2::all();
+        return view('nguoidung.sanpham.san-pham',$data);
+    }
+
+    public function getchitietsanpham1($id){ 
+        $data['sanpham'] = sanpham::find($id);
+        return view('nguoidung/chitietsanpham/chi-tiet-san-pham',$data);
+    }
+    public function getchitietsanpham2($id){ 
+        $data['sanpham'] = sanpham2::find($id);
+        return view('nguoidung/chitietsanpham/chi-tiet-san-pham',$data);
     }
 
     

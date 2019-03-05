@@ -18,9 +18,10 @@
 				<a class="navbar-brand" href="{{ asset('admin/trang-chu') }}">Admin</a>
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> {{Auth::user()->name}} <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="#"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Logout</a></li>
+							<li><a href="{{ asset('admin/doi-mat-khau') }}"> Đổi mật khẩu</a></li>
+							<li><a href="{{ asset('admin/dang-xuat') }}"> Đăng xuất</a></li>
 						</ul>
 					</li>
 				</ul>

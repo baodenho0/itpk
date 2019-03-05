@@ -4,7 +4,7 @@
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Danh mục Sản phẩm</h1>
+				<h1 class="page-header">Danh mục Sản phẩm menu 2</h1>
 				@include('errors.note')
 			</div>
 		</div><!--/.row-->
@@ -54,7 +54,7 @@
 											@foreach ($menu as $mn)
 												<option 
 												@php
-													if($mn->id == $sanpham2->id)
+													if($mn->id == $sanpham2->id_danhmuc2)
 														echo "selected";
 												@endphp
 

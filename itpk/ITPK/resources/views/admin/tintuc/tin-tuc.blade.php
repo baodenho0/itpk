@@ -47,6 +47,7 @@
 										</tr>
 										@endforeach
 										
+										<div>{{$tintuc->links()}}</div>
 										
 									</tbody>
 								</table>							

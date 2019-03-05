@@ -10,7 +10,7 @@ class tintucController extends Controller
 {
     //
     public function gettintuc(){
-    	$data['tintuc'] = tintuc::all();
+    	$data['tintuc'] = tintuc::orderBy('id','desc')->paginate(3);
     	return view('admin.tintuc.tin-tuc',$data);
     }
 

@@ -155,9 +155,9 @@ class sanphamController extends Controller
     		'chitietsanpham'=>'required',
     		'cmtfb'=>'required',
     		'seo'=>'required',
-    		'id_danhmuc'=>'required',
+    		// 'id_danhmuc'=>'required',
     		'img'=>'required|mimes:jpg,jpeg,png',
-    		'menu'=>'required',
+    		// 'menu'=>'required',
     	],[
     		'tieude.required'=>'Chưa nhập tiêu đề',
     		'giatien.required'=>'Chưa nhập giá tiền',
@@ -166,10 +166,10 @@ class sanphamController extends Controller
     		'chitietsanpham.required'=>'Chưa nhập chi tiết sản phẩm',
     		'nhungcmtfb.required'=>'Chưa nhập nhúng cmt FB',
     		'seo.required'=>'Chưa nhập seo',
-    		'id_danhmuc.required'=>'Chưa có menu',
+    		// 'id_danhmuc.required'=>'Chưa có menu',
     		'img.required'=>'Chưa có hình ảnh',
     		'img.mimes'=>'Chỉ được tải ảnh',
-    		'menu.mimes'=>'Chưa có menu',
+    		// 'menu.mimes'=>'Chưa có menu',
     	]);
     	$sanpham1 = new sanpham;
     	$sanpham1->tieude = $request->tieude;
@@ -209,7 +209,7 @@ class sanphamController extends Controller
     		'chitietsanpham'=>'required',
     		'cmtfb'=>'required',
     		'seo'=>'required',
-    		'id_danhmuc'=>'required',
+    		// 'id_danhmuc'=>'required',
     		'img'=>'mimes:jpg,jpeg,png',
     		// 'menu'=>'required',
     	],[
@@ -223,7 +223,7 @@ class sanphamController extends Controller
     		// 'id_danhmuc.required'=>'Chưa có menu',
     		// 'img.required'=>'Chưa có hình ảnh',
     		'img.mimes'=>'Chỉ được tải ảnh',
-    		'menu.mimes'=>'Chưa có menu',
+    		// 'menu.mimes'=>'Chưa có menu',
     	]);
     	$sanpham1 =  sanpham::find($id);
     	$sanpham1->tieude = $request->tieude;
@@ -274,9 +274,9 @@ class sanphamController extends Controller
     		'chitietsanpham'=>'required',
     		'cmtfb'=>'required',
     		'seo'=>'required',
-    		'menu'=>'required',
+    		// 'menu'=>'required',
     		'img'=>'required|mimes:jpg,jpeg,png',
-    		'menu'=>'required',
+    		// 'menu'=>'required',
     	],[
     		'tieude.required'=>'Chưa nhập tiêu đề',
     		'giatien.required'=>'Chưa nhập giá tiền',
@@ -285,10 +285,10 @@ class sanphamController extends Controller
     		'chitietsanpham.required'=>'Chưa nhập chi tiết sản phẩm',
     		'nhungcmtfb.required'=>'Chưa nhập nhúng cmt FB',
     		'seo.required'=>'Chưa nhập seo',
-    		'id_danhmuc2.required'=>'Chưa nhập menu',
+    		// 'id_danhmuc2.required'=>'Chưa nhập menu',
     		'img.required'=>'Chưa có hình ảnh',
     		'img.mimes'=>'Chỉ được tải ảnh',
-    		'menu.mimes'=>'Chưa có menu',
+    		// 'menu.mimes'=>'Chưa có menu',
     	]);
     	$sanpham2 = new sanpham2;
     	$sanpham2->tieude = $request->tieude;
@@ -314,7 +314,7 @@ class sanphamController extends Controller
 
     //sua san pham 2 menu 2
     public function getsuamenu2sanpham($id){
-    	$data['menu'] =  danhmuc::all();
+    	$data['menu'] =  danhmuc2::all();
     	$data['sanpham2'] =  sanpham2::find($id);
     	return view('admin.sanpham.suasanpham2',$data);
     }
@@ -328,7 +328,7 @@ class sanphamController extends Controller
     		'chitietsanpham'=>'required',
     		'cmtfb'=>'required',
     		'seo'=>'required',
-    		'id_danhmuc2'=>'required',
+    		// 'id_danhmuc2'=>'required',
     		'img'=>'mimes:jpg,jpeg,png',
     		// 'menu'=>'required',
     	],[
@@ -339,7 +339,7 @@ class sanphamController extends Controller
     		'chitietsanpham.required'=>'Chưa nhập chi tiết sản phẩm',
     		'nhungcmtfb.required'=>'Chưa nhập nhúng cmt FB',
     		'seo.required'=>'Chưa nhập seo',
-    		'id_danhmuc2.required'=>'Chưa có menu',
+    		// 'id_danhmuc2.required'=>'Chưa có menu',
     		// 'img.required'=>'Chưa có hình ảnh',
     		'img.mimes'=>'Chỉ được tải ảnh',
     		// 'menu.mimes'=>'Chưa có menu',
@@ -363,7 +363,7 @@ class sanphamController extends Controller
 		}
 		// --- 
 
-    	$sanpham1->save();
+    	$sanpham2->save();
     	return back()->with('thongbao','Cập nhật thành công');
     }
 
