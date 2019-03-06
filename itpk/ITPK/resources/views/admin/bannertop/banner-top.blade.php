@@ -19,7 +19,7 @@
 							<div class="row" style="margin-bottom:40px">
 								<div class="col-xs-8">
 									<div class="form-group" >
-										<label>Background</label>
+										<label>Banner Top</label>
 										<input accept="image/*"  id="img" type="file" name="bannerdautrang" class="form-control hidden" onchange="changeImg(this)">
 					                    <img  id="avatar" class="thumbnail" width="300px" src="upload/img/{{$bannertop->bannerdautrang}}" >
 									</div>
@@ -39,11 +39,11 @@
 										<label>Email</label>
 										<input value="{{$bannertop->email}}" required type="email" name="email" class="form-control">
 									</div>
-									<div class="form-group" >
+									{{-- <div class="form-group" >
 										<label>Background</label>
 										<input accept="image/*"  id="img" type="file" name="img" class="form-control hidden" onchange="changeImg(this)">
 					                    <img  id="avatar" class="thumbnail" width="300px" src="upload/img/{{$bannertop->background}}" >
-									</div>
+									</div> --}}
 									<div class="form-group" >
 										<label>Slogan</label>
 										<input value="{{$bannertop->slogan}}" required type="text" name="slogan" class="form-control">

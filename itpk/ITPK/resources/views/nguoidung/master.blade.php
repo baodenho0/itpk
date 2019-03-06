@@ -10,6 +10,8 @@
 	<base href="{{ asset('layout') }}/">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="owl.carousel.css">
+	<link rel="stylesheet" href="owl.theme.default.min.css">
 	
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -104,7 +106,7 @@
 
 			@yield('noidung')
 
-			<div class="footer">
+			<div class="footer ">
 				<div class="row">
 				<div class="col-md-4">
 					<h3 class="h3-1">VỀ CHÚNG TỐI</h3>
@@ -149,6 +151,7 @@
 				<!-- jQuery -->
 		<script src="js/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js" ></script>
+		<script src="owl.carousel.js"></script>
 		<script>
 		
 			window.onscroll = function() {scrollFunction()};

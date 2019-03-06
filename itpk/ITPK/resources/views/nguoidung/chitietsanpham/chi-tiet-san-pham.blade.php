@@ -2,13 +2,13 @@
 @section('title','Chi tiết sản phẩm')
 @section('noidung')
 
-<div class=" ">
+<div class="main bg ">
 		<div class="noidung">
 			<div class="tieude"><h1>CHI TIẾT SẢN PHẨM</h1></div>
 			<div class="row sanpham">
 				
 					<div class="col-md-3 khung ">
-						<div class="row">
+						<div class="row hovergallery">
 							<img class="banner_sanpham banner " alt="{{$sanpham->seo}}" src="upload/img/{{$sanpham->hinhanhchinh}}">
 							
 						</div>
@@ -36,7 +36,7 @@
 		</div>
 			
 		</div>		
-</div>
+
 
 
 				

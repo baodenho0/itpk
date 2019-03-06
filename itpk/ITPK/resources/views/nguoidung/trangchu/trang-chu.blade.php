@@ -2,7 +2,8 @@
 @section('title','Trang chủ')
 @section('noidung')
 
-<div class="main bg">
+
+<div class="main bg ">
 				<div><img class='banner'src="upload/img/{{$banner->hinhanh}}" alt=""></div>
 				<!-- slide -->
 				<div class="main-1">
@@ -339,57 +340,44 @@
 				</div>
 				<!-- END MAIN 6 -->
 
-				<div class="main-2">
-					<div class="row">
-					<div class="marg"><h4 class="button-mid">ĐỐI TÁC</h4></div>
-					<div id="doi-tac" class="carousel slide" data-ride="carousel">
-						
-						<div class="carousel-inner">
-							@php
-								$doitac123 =0;
-							@endphp
-							@foreach ($doitac as $dt123)
-							
-							<div class="item 
-							@php
-								if($doitac123 == 0)
-								echo "active";
-								$doitac123++;
-							@endphp
-							">
-											<div class="row">
-											<div class="col-xs-3 khung"><div class="row">
-												<img class="banner" alt="First slide" src="upload/img/{{$dt123->hinhanh}}">
-												
-											</div></div>
-											<div class="col-xs-3 khung"><div class="row">
-												<img class="banner " alt="First slide" src="upload/img/{{$dt123->hinhanh}}">
-												
-											</div></div>
-											<div class="col-xs-3 khung"><div class="row">
-												<img class="banner " alt="First slide" src="upload/img/{{$dt123->hinhanh}}">
-												
-											</div></div>
-											<div class="col-xs-3 khung"><div class="row">
-												<img class="banner " alt="First slide" src="upload/img/{{$dt123->hinhanh}}">
-												
-											</div></div>
-											</div>
-							</div>
-							@endforeach
+				
 
-							
-						</div>
-						<a class="left carousel-control" href="#doi-tac" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-						<a class="right carousel-control" href="#doi-tac" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-					</div>
-					</div>
 				</div>
 
-				
+				<div class="row sanpham ">
+			<div class="owl-carousel owl-theme">
+				@foreach ($doitac as $dt1234)
+					<div class="item">
+		    	<img class="img-fluid banner" src="upload/img/{{$dt1234->hinhanh}}" alt="">
+		    </div>
+				@endforeach
+		    
+		    
+		</div>
+		</div>
 
 				
-	</div>
+	
 			<!-- END MAIN -->
 
+@endsection
+@section('script')
+<script>
+ 			$('.owl-carousel').owlCarousel({
+			    loop:true,
+			    margin:10,
+			    nav:true,
+			    responsive:{
+			        0:{
+			            items:1
+			        },
+			        600:{
+			            items:3
+			        },
+			        1000:{
+			            items:5
+			        }
+			    }
+			})
+ 		</script>
 @endsection
